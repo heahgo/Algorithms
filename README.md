@@ -2,9 +2,9 @@
 
 Sort Algorithms
 -------------
-*Merge Sort
-*Bubble Sort
+*.Merge Sort
+*.Bubble Sort
 
 Search Algorithms
 -----------
-*Binary Search
+*.Binary Search
