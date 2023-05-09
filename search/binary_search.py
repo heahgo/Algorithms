@@ -1,5 +1,6 @@
 # binary_search.py
-# bubble sort  O(logn)
+# Binary Search Algorithm
+# Time Complexity : O(logn)
 
 def binary_search_algorithm(arr, num, left, right): 
         

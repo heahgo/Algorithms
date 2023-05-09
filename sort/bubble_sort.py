@@ -1,5 +1,6 @@
 # bubble_sort.py
-# bubble sort  O(n**2)
+# Bubble Sort Algorithm
+# Time Complexity : O(n^2)
 
 def bubble_sort(arr, result):
 

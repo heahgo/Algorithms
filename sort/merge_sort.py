@@ -1,5 +1,6 @@
 # merge_sort.py
-# merge sort    O(nlogn)
+# merge Sort Algorithm
+# Time Complexity : O(nlogn)
 
 def merge(arr, tmp, left, right):
     mid = (left + right) // 2
