@@ -4,8 +4,7 @@
 
 from random import randrange
 
-def change_2dr(n):      # n-1 = 2^r * d
-    d = n - 1 
+def change_2dr(d):      # d = n-1 = 2^r * d
     r = 0
     while d % 2 != 1:
         d  = d // 2 
@@ -15,7 +14,7 @@ def change_2dr(n):      # n-1 = 2^r * d
 def miller_rabin_primality_test(n):
     for repeat in range(10):
         break_flag = 0
-        r, d = change_2dr(n)
+        r, d = change_2dr(n - 1)
         a = randrange(2, n - 2)
         x = pow(a, d, n)
         if x == 1 or x == n - 1:
