@@ -4,7 +4,7 @@
 
 from random import randrange
 
-def change_2dr(n):      # n-1 = 2^d * r
+def change_2dr(n):      # n-1 = 2^r * d
     d = n - 1 
     r = 0
     while d % 2 != 1:
@@ -51,4 +51,4 @@ def test():
 if __name__ == '__main__':
     number = int(input("Input number : "))
     print(f'{number} is Prime') if is_prime(number) else print(f'{number} is not Prime')
-    #test()
+    test()
