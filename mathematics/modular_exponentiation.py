@@ -7,8 +7,8 @@ def mod_exp_r2l(a, n, m):           # right to left (r2l)
     A, B = 1, a
     for i in range(len(n) - 1, -1, -1):
         if n[i] == '1':
-            A = pow(A*B, 1, m)
-        B = pow(B, 2, m)
+            A = A * B % m
+        B = B ** 2 % m
     return A
 
 def mod_exp_l2r(a, n, m):           # left to right (l2r)
@@ -17,9 +17,9 @@ def mod_exp_l2r(a, n, m):           # left to right (l2r)
     n = bin(n)[3:]                  # Use less memory than r2l
     A = a
     for i in n:
-        A = pow(A, 2, m)
+        A = A ** 2 % m 
         if i == '1':
-            A = pow(A * a, 1, m)
+            A = A * a % m
     return A
 
 if __name__ == "__main__":
