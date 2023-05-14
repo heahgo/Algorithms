@@ -3,18 +3,12 @@
 # Time Complexity : O(k * log^3(n))
 
 from random import randrange
-
-def change_2dr(d):      # d = n-1 = 2^r * d
-    r = 0
-    while d % 2 != 1:
-        d  = d // 2 
-        r += 1 
-    return (r, d)
     
 def miller_rabin_primality_test(n):
+    d, r = n - 1, 0
+    while d % 2 != 0: d //= 2; r += 1   # n - 1 = 2^r * d
     for repeat in range(10):
         break_flag = 0
-        r, d = change_2dr(n - 1)
         a = randrange(2, n - 2)
         x = pow(a, d, n)
         if x == 1 or x == n - 1:
