@@ -38,6 +38,7 @@ def test():
     for prime in prime_list:
         if is_prime(prime) == False:
             print('Test Failed')
+            return
     print('Test Passed')    
 
 
