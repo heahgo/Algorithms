@@ -28,7 +28,7 @@ def miller_rabin_primality_test(n):
 def is_prime(n):
     if n == 2 or n == 3:          # 2 is prime
         return True
-    if n // 2 == 0 or n < 2:
+    if n % 2 == 0 or n < 2:
         return False
     if miller_rabin_primality_test(n):
         return True
