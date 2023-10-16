@@ -1,22 +1,48 @@
 #include <cstdio>
 
-void bubbleSort(int *a, int size) {
-    int i, j, t, tmp;
-    for (i = size-1; i > 0; i--) {
-        printf("\n %d단계>>", size-i);
-        for (j = 0; j < i; j++) {
-            if (a[j] > a[j+1]) {
-                tmp = a[j];
-                a[j] = a[j+1];
-                a[j+1] = tmp;
-            }
-            printf("\n\t");
-            for (t = 0; t < size; t++) printf("%3d ", a[t]);
+void Swap(int* a, int* b) {
+    if (a == b || *a == *b) return;
+    *a ^= *b;
+    *b ^= *a;
+    *a ^= *b;
+}
+
+void PrintArr(int* arr, int size) {
+    printf("Arr : [");
+    for (int i = 0; i < size; i++) {
+        if (i == size-1) printf("%d]\n", arr[i]);
+        else printf("%d, ", arr[i]);
+    }
+}
+
+void BubbleSort(int *arr, int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size-i-1; j++) {
+            if (arr[j] > arr[j+1]) Swap(&arr[j], &arr[j+1]);
         }
     }
 }
 
+void OptimizedBubbleSort(int *arr, int size) {
+    int sorted_flag;
+    for (int i = 0; i < size; i++) {
+        sorted_flag = 1;
+        for (int j = 0; j < size-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                Swap(&arr[j], &arr[j+1]);
+                sorted_flag = 0;
+            }
+        }
+        if (sorted_flag == 1) return;
+    }
+}
+
 int main() {
-    int arr[] = {123, 1245, 50, 38, 177, 463, 33};
-    bubbleSort(arr, 7);
+    int arr1[] = {123, 1245, 50, 38, 177, 463, 33};
+    BubbleSort(arr1, 7);
+    PrintArr(arr1, 7);
+
+    int arr2[] = {123, 1245, 50, 38, 177, 463, 33};
+    OptimizedBubbleSort(arr2, 7);
+    PrintArr(arr2, 7);
 }
