@@ -1,7 +1,7 @@
 #include <cstdio>
 
 void PrintArr(int* arr, int size) {
-    printf("Arr : [");
+    printf("[");
     for (int i = 0; i < size; i++) {
         if (i == size-1) printf("%d]\n", arr[i]);
         else printf("%d, ", arr[i]);
@@ -54,5 +54,6 @@ int main() {
     int arr[] = {123, 1245, 50, 38, 177, 463, 33};
     int tmp[] = {0, 0, 0, 0, 0, 0 ,0};
     MergeSort(arr, tmp, 0, 6);
+    printf("Merge Sort : ");
     PrintArr(arr, 7);
 }

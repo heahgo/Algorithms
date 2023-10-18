@@ -8,7 +8,7 @@ void Swap(int* a, int* b) {
 }
 
 void PrintArr(int* arr, int size) {
-    printf("Arr : [");
+    printf("[");
     for (int i = 0; i < size; i++) {
         if (i == size-1) printf("%d]\n", arr[i]);
         else printf("%d, ", arr[i]);
@@ -31,5 +31,6 @@ void InsertionSort(int* arr, int size) {
 int main() {
     int arr[] = {123, 1245, 50, 38, 177, 463, 33};
     InsertionSort(arr, 7);
+    printf("Insertion Sort : ");
     PrintArr(arr, 7);
 }

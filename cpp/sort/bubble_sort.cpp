@@ -8,7 +8,7 @@ void Swap(int* a, int* b) {
 }
 
 void PrintArr(int* arr, int size) {
-    printf("Arr : [");
+    printf("[");
     for (int i = 0; i < size; i++) {
         if (i == size-1) printf("%d]\n", arr[i]);
         else printf("%d, ", arr[i]);
@@ -40,9 +40,11 @@ void OptimizedBubbleSort(int *arr, int size) {
 int main() {
     int arr1[] = {123, 1245, 50, 38, 177, 463, 33};
     BubbleSort(arr1, 7);
+    printf("Bubble Sort : ");
     PrintArr(arr1, 7);
 
     int arr2[] = {123, 1245, 50, 38, 177, 463, 33};
     OptimizedBubbleSort(arr2, 7);
+    printf("Optimized Bubble Sort : ");
     PrintArr(arr2, 7);
 }
