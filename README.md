@@ -12,6 +12,10 @@ Search Algorithms
 -----------
 * Binary Search
 
+Dynamic Programing
+-----------
+* Longesrt Common Subsequence
+
 Mathematics
 --------------
 * Euclidean Algorithm
