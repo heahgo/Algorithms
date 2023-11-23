@@ -1,24 +1,29 @@
 # Algorithms
 
-Sort Algorithms
--------------
-* Selection Sort
-* Insertion Sort
-* Bubble Sort
-* Merge Sort
-* Quick Sort
+## Sort Algorithms
 
-Search Algorithms
------------
-* Binary Search
+- Selection Sort
+- Insertion Sort
+- Bubble Sort
+- Merge Sort
+- Quick Sort
 
-Dynamic Programing
------------
-* Longesrt Common Subsequence
+## Search Algorithms
 
-Mathematics
---------------
-* Euclidean Algorithm
-* Extended Euclidean Algorithm
-* Miller Rabin Primality Test
-* Modular Exponentiation
+- Binary Search
+
+## Graph Algorithms
+
+- Breadth First Search
+- Depth First Search
+
+## Dynamic Programing
+
+- Longesrt Common Subsequence
+
+## Mathematics
+
+- Euclidean Algorithm
+- Extended Euclidean Algorithm
+- Miller Rabin Primality Test
+- Modular Exponentiation
