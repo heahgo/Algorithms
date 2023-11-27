@@ -65,3 +65,21 @@ class Graph {
             }
         }
 };
+
+class Queue {
+    public:
+        uint32_t data;
+        
+}
+
+void BFS(Graph* graph, uint32_t start) {
+
+}
+
+void main() {
+    uint32_t vertex, edge;
+    scanf("%u %u", &vertex, &edge); 
+    Graph graph = Graph(vertex, edge);
+    printf("----------------\n");
+    graph.Print();
+}
