@@ -55,6 +55,7 @@ class Graph {
             }
             uint32_t v1, v2;
             for (uint32_t i = 0; i < edge_num; i++) {
+                printf("Input two-way edges (ex : 1 2): ");
                 scanf("%u %u", &v1, &v2); // Input two-way edges
                 Vertex* tmp1 = new Vertex(v2);
                 graph_.at(v1-1)->Add(tmp1);  
@@ -110,17 +111,21 @@ vector<uint32_t> DFS(Graph* graph, uint32_t start) {
 
 int main() {
     uint32_t vertex, edge;
+    printf("Input vertex number and edge number (ex 1 2): ");
     scanf("%u %u", &vertex, &edge); 
     Graph graph = Graph(vertex, edge);
 
     graph.Print();
     vector<uint32_t> dfs_result;
 
-    printf("\nDFS : ");
-    dfs_result = DFS(&graph, 1);
+    uint32_t start = 1;
+    printf("Input start vertex : ");
+    scanf("%u", &start);
 
+    printf("\nDFS : ");
+    dfs_result = DFS(&graph, start);  
     for (uint32_t i = 0; i < dfs_result.size(); i++) {
         printf("%u ", dfs_result.at(i));
     }
-    printf("\n");
+    printf("\n\n");
 }
