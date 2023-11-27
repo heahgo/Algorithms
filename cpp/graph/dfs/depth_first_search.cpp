@@ -1,6 +1,7 @@
 #include <vector>
 #include <cstdio>
 #include <cstdint>
+#include <stack>
 
 using std::vector;
 
@@ -74,7 +75,7 @@ class Graph {
 
 vector<uint32_t> DFS(Graph* graph, uint32_t start) {
     vector<Vertex*> g = graph->graph_;
-    vector<Vertex*> stack;
+    std::stack<Vertex*> stack;
     vector<uint32_t> result;
     bool* visited = new bool[graph->vertex_num_+1];       // init false
     for (uint32_t i = 0; i < graph->vertex_num_; i++) {
@@ -84,7 +85,7 @@ vector<uint32_t> DFS(Graph* graph, uint32_t start) {
     uint32_t n = start-1;
     Vertex* v = g.at(n);
 
-    stack.push_back(v);
+    stack.push(v);
     visited[n] = true;
     result.push_back(start);
     v = v->Next();
@@ -98,11 +99,11 @@ vector<uint32_t> DFS(Graph* graph, uint32_t start) {
             n = v->num_-1;
             result.push_back(n+1);
             visited[n] = true;
-            stack.push_back(v);
+            stack.push(v);
             v = g.at(n);
         } else {
-            v = stack.back();
-            stack.pop_back();
+            v = stack.top();
+            stack.pop();
         }
     }
     delete[] visited;
