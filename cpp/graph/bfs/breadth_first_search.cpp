@@ -72,8 +72,41 @@ class Graph {
         }
 };
 
-void BFS(Graph* graph, uint32_t start) {
+vector<uint32_t> BFS(Graph* graph, uint32_t start) {
+    vector<Vertex*> g = graph->graph_;
+    vector<Vertex*> queue;
+    vector<uint32_t> result;
+    bool* visited = new bool[graph->vertex_num_+1];       // init false
+    for (uint32_t i = 0; i < graph->vertex_num_; i++) {
+        visited[i] = false;
+    }
 
+    uint32_t n = start-1;
+    Vertex* v = g.at(n);
+
+    queue.insert(queue.begin(), v);
+    visited[n] = true;
+    result.push_back(start);
+    v = v->Next();
+
+    while (queue.size() != 0) {
+        if (v != NULL) {
+            if (visited[v->num_-1] == true) {
+                v = v->Next();
+                continue;
+            }
+            n = v->num_-1;
+            result.push_back(n+1);
+            visited[n] = true;
+            queue.insert(queue.begin(), v);
+            v = v->Next();
+        } else {
+            v = g.at(queue.back()->num_-1);
+            queue.pop_back();
+        }
+    }
+    delete[] visited;
+    return result;
 }
 
 int main() {
@@ -82,4 +115,18 @@ int main() {
     scanf("%u %u", &vertex, &edge); 
     Graph graph = Graph(vertex, edge);
     graph.Print();
+
+    graph.Print();
+    vector<uint32_t> bfs_result;
+
+    uint32_t start = 1;
+    printf("Input start vertex : ");
+    scanf("%u", &start);
+
+    printf("\nBFS : ");
+    bfs_result = BFS(&graph, start);  
+    for (uint32_t i = 0; i < bfs_result.size(); i++) {
+        printf("%u ", bfs_result.at(i));
+    }
+    printf("\n\n");
 }
