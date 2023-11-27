@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <cstdint>
 
+using std::vector;
+
 class Vertex {
     public:
         uint32_t num_;
@@ -26,36 +28,40 @@ class Vertex {
 
 class Graph {
     public:
-        std::vector<Vertex*> graph_;
+        vector<Vertex*> graph_;
         uint32_t vertex_num_;
         uint32_t edge_num_;
         
-        void Print() {  // Graph print Using Adjacent Links List
+        void Print() {  // Graph print Using Adjacent Linked List
+        printf("**** Linked List Graph ****\n");
+        printf("--------+------------------\n");
             for (uint32_t i = 0; i < vertex_num_; i++) {
                 Vertex* tmp = graph_.at(i);
+                printf("idx : %u | ", i+1);
+                tmp = tmp->Next();
                 while(tmp->Next() != NULL) {
                     printf("%u ", tmp->num_);
                     tmp = tmp->vertex_;
                 }
                 printf("%u \n", tmp->num_);
             }
+        printf("--------+------------------\n");
         }
 
         Graph(uint32_t vertex_num, uint32_t edge_num) : vertex_num_(vertex_num), edge_num_(edge_num) {
             for (uint32_t i = 0; i < vertex_num; i++) {
-                Vertex* tmp = new Vertex();
+                Vertex* tmp = new Vertex(i+1);
                 graph_.push_back(tmp);
             }
             uint32_t v1, v2;
             for (uint32_t i = 0; i < edge_num; i++) {
+                printf("Input two-way edges (ex : 1 2): ");
                 scanf("%u %u", &v1, &v2); // Input two-way edges
                 Vertex* tmp1 = new Vertex(v2);
-                graph_.at(v1-1)->num_ += 1;
                 graph_.at(v1-1)->Add(tmp1);  
 
                 if (v1 == v2) continue;
                 Vertex* tmp2 = new Vertex(v1);
-                graph_.at(v2-1)->num_ += 1;
                 graph_.at(v2-1)->Add(tmp2);
             }
         }
@@ -68,8 +74,8 @@ class Graph {
 
 int main() {
     uint32_t vertex, edge;
+    printf("Input vertex number and edge number (ex 1 2): ");
     scanf("%u %u", &vertex, &edge); 
     Graph graph = Graph(vertex, edge);
-    printf("----------------\n");
     graph.Print();
 }
