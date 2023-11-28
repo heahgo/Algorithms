@@ -5,7 +5,7 @@
 
 using std::vector;
 
-class Vertex {
+class Vertex {      // vertex class
     public:
         uint32_t num_;
         Vertex* vertex_;
@@ -27,7 +27,7 @@ class Vertex {
         }
 };
 
-class Graph {
+class Graph {  // Implement graph using Adjacent Linked List
     public:
         vector<Vertex*> graph_;
         uint32_t vertex_num_;
@@ -49,7 +49,7 @@ class Graph {
         printf("--------+------------------\n");
         }
 
-        Graph(uint32_t vertex_num, uint32_t edge_num) : vertex_num_(vertex_num), edge_num_(edge_num) {
+        Graph(uint32_t vertex_num, uint32_t edge_num) : vertex_num_(vertex_num), edge_num_(edge_num) {  // gen graph class
             for (uint32_t i = 0; i < vertex_num; i++) {
                 Vertex* tmp = new Vertex(i+1);
                 graph_.push_back(tmp);
@@ -73,13 +73,13 @@ class Graph {
         }
 };
 
-vector<uint32_t> DFS(Graph* graph, uint32_t start) {
-    vector<Vertex*> g = graph->graph_;
-    std::stack<Vertex*> stack;
-    vector<uint32_t> result;
-    bool* visited = new bool[graph->vertex_num_+1];       // init false
-    for (uint32_t i = 0; i < graph->vertex_num_; i++) {
-        visited[i] = false;
+vector<uint32_t> DFS(Graph* graph, uint32_t start) {    // Depth-First-Search
+    vector<Vertex*> g = graph->graph_;                  // vector C++ STL
+    std::stack<Vertex*> stack;                          // stack C++ STL
+    vector<uint32_t> result;                            // DFS result
+    bool* visited = new bool[graph->vertex_num_+1];     
+    for (uint32_t i = 0; i < graph->vertex_num_; i++) { // init false
+        visited[i] = false;     
     }
 
     uint32_t n = start-1;
