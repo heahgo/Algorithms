@@ -90,7 +90,7 @@ vector<uint32_t> DFS(Graph* graph, uint32_t start) {
     result.push_back(start);
     v = v->Next();
 
-    while(stack.size() != 0) {
+    while(!stack.empty()) {
         if (v != NULL) {
             if (visited[v->num_-1] == true) {
                 v = v->Next();
