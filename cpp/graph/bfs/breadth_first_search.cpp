@@ -1,6 +1,7 @@
 #include <vector>
 #include <cstdio>
 #include <cstdint>
+#include <queue>
 
 using std::vector;
 
@@ -74,7 +75,7 @@ class Graph {
 
 vector<uint32_t> BFS(Graph* graph, uint32_t start) {
     vector<Vertex*> g = graph->graph_;
-    vector<Vertex*> queue;
+    std::queue<Vertex*> queue;
     vector<uint32_t> result;
     bool* visited = new bool[graph->vertex_num_+1];       // init false
     for (uint32_t i = 0; i < graph->vertex_num_; i++) {
@@ -84,12 +85,12 @@ vector<uint32_t> BFS(Graph* graph, uint32_t start) {
     uint32_t n = start-1;
     Vertex* v = g.at(n);
 
-    queue.insert(queue.begin(), v);
+    queue.push(v);
     visited[n] = true;
     result.push_back(start);
     v = v->Next();
 
-    while (queue.size() != 0) {
+    while (!queue.empty()) {
         if (v != NULL) {
             if (visited[v->num_-1] == true) {
                 v = v->Next();
@@ -98,11 +99,11 @@ vector<uint32_t> BFS(Graph* graph, uint32_t start) {
             n = v->num_-1;
             result.push_back(n+1);
             visited[n] = true;
-            queue.insert(queue.begin(), v);
+            queue.push(v);
             v = v->Next();
         } else {
-            v = g.at(queue.back()->num_-1);
-            queue.pop_back();
+            v = g.at(queue.front()->num_-1);
+            queue.pop();
         }
     }
     delete[] visited;
