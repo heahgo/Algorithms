@@ -21,10 +21,6 @@
 
 - Longesrt Common Subsequence
 
-## String Metch Algorithms
-
-- Finite Automata
-
 ## Mathematics
 
 - Euclidean Algorithm
